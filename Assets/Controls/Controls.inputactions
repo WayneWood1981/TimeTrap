@@ -1,0 +1,147 @@
+{
+    "name": "Controls",
+    "maps": [
+        {
+            "name": "GamePlay",
+            "id": "f9f5c242-1a64-4463-8d4c-da342a85359e",
+            "actions": [
+                {
+                    "name": "Move",
+                    "type": "Value",
+                    "id": "29cc794b-3815-4627-b1c5-d43d38378bfe",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Slow",
+                    "type": "PassThrough",
+                    "id": "448adaa7-66f9-415a-8c49-e5015ecd29a8",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press"
+                },
+                {
+                    "name": "Pause",
+                    "type": "PassThrough",
+                    "id": "a93b26c4-7f83-4a8e-8211-8a3ffe514c5a",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press"
+                },
+                {
+                    "name": "FastForward",
+                    "type": "PassThrough",
+                    "id": "98535b43-3801-4e9e-b88c-5021de35b5eb",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press"
+                },
+                {
+                    "name": "Grab",
+                    "type": "PassThrough",
+                    "id": "b3a727a3-1d69-4474-9e91-39fc05e2ed62",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "LeftDPad",
+                    "type": "PassThrough",
+                    "id": "07b9de54-e9ee-4ed1-9feb-51e73bc7a73d",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Tap,Press"
+                },
+                {
+                    "name": "RightDPad",
+                    "type": "PassThrough",
+                    "id": "aa754b1d-88e3-48c0-b786-c06e5d5db357",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Tap,Press"
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "e2e484b5-7631-4590-be36-15b92831d6ac",
+                    "path": "<Gamepad>/leftStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "734acb6b-cecd-4031-be45-822f1e830654",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "Tap",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Slow",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "53c8ea34-56ab-4e56-8f3d-51419d862f37",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "47618241-d15b-434f-bfc4-fe0bf3803193",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "FastForward",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "85288be9-77b6-4f9b-8118-fccabc19d0a2",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Grab",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7682edc7-a145-4e5c-9518-8840eb5b6ffc",
+                    "path": "<Gamepad>/dpad/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LeftDPad",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "98a83ca5-2c16-47f6-80bc-5c567979a497",
+                    "path": "<Gamepad>/dpad/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RightDPad",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
