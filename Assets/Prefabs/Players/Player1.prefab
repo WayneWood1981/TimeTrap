@@ -20319,9 +20319,9 @@ Rigidbody:
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 112
-  m_CollisionDetection: 1
+  m_CollisionDetection: 3
 --- !u!114 &5465616457927728217
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20369,6 +20369,7 @@ MonoBehaviour:
   hasPPBonus: 0
   hasFFBonus: 0
   isReady: 0
+  hasLoaded: 0
   Spheres:
   - {fileID: 5701204926926094650, guid: c822e0e9f1a9041dd863878d284f411d, type: 3}
   - {fileID: 3253529153407972948, guid: 46547effba10a436e80cce202c747029, type: 3}

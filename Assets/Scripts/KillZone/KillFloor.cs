@@ -10,6 +10,8 @@ public class KillFloor : MonoBehaviour
     public Transform player3Start;
     public Transform player4Start;
 
+    public Transform[] playersPositions;
+
     public Transform GameArena;
 
     public GameObject player1;
@@ -69,7 +71,9 @@ public class KillFloor : MonoBehaviour
     void Respawn(GameObject player, Transform pos)
     {
         player.GetComponentInChildren<Animator>().SetBool("isFalling", false);
-        player.transform.position = pos.position;
+        
+        int playersNumber = player.GetComponent<PlayersBonus>().currentColourNumber;
+        player.transform.position = playersPositions[playersNumber].position;
         player.transform.parent = GameObject.Find("GAMEARENA").transform;
         player.GetComponent<PlayerMovement>().downwardForce = 0.1f;
         ac.PlayOneShot(audioClips[Random.Range(0, audioClips.Length)]);

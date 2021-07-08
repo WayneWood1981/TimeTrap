@@ -14,13 +14,14 @@ public class Winner : MonoBehaviour
 
     public List<GameObject> players;
 
-
+    private bool isAWinner;
 
     // Start is called before the first frame update
     void Start()
     {
         playerManager = GetComponent<PlayerManager>();
         movingCamera = FindObjectOfType<MovingCamera>();
+        isAWinner = false;
     }
 
     // Update is called once per frame
@@ -28,12 +29,13 @@ public class Winner : MonoBehaviour
     {
         if (players.Count == 1 && playerManager.gameHasStarted)
         {
-            playerManager.gameHasStarted = false;
-            movingCamera.hasWon = true;
+            if (!isAWinner)
+            {
+                Invoke("WinDelay", 1);
 
-            winnerCanvas.gameObject.SetActive(true);
-            winningText.text = GetPlayer().transform.tag + " WINS!";
-            playerManager.gameHasEnded = true;
+                isAWinner = true;
+            }
+            
         }
 
         if (players.Count == 0 && playerManager.gameHasStarted)
@@ -41,6 +43,16 @@ public class Winner : MonoBehaviour
 
         }
         
+    }
+
+    void WinDelay()
+    {
+        playerManager.gameHasStarted = false;
+        movingCamera.hasWon = true;
+
+        winnerCanvas.gameObject.SetActive(true);
+        winningText.text = GetPlayer().transform.tag + " WINS!";
+        playerManager.gameHasEnded = true;
     }
 
     public GameObject GetPlayer()

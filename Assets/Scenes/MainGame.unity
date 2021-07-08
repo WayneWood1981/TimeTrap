@@ -1263,7 +1263,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_JoinAction:
-    m_UseReference: 0
+    m_UseReference: 1
     m_Action:
       m_Name: Join
       m_Type: 0
@@ -1272,7 +1272,7 @@ MonoBehaviour:
       m_Processors: 
       m_Interactions: 
       m_SingletonActionBindings: []
-    m_Reference: {fileID: 0}
+    m_Reference: {fileID: -5317542784905162258, guid: 5b4101c9c3ded405ea978c964b157166, type: 3}
   m_PlayerPrefab: {fileID: 5465616457927728209, guid: 951a761accbc148feadf89ea09295a1d, type: 3}
   m_SplitScreen: 0
   m_MaintainAspectRatioInSplitScreen: 0
@@ -4057,6 +4057,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -8172877586695734554, guid: 951a761accbc148feadf89ea09295a1d, type: 3}
+      propertyPath: hasFFBonus
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8172877586695734554, guid: 951a761accbc148feadf89ea09295a1d, type: 3}
+      propertyPath: hasPPBonus
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8172877586695734554, guid: 951a761accbc148feadf89ea09295a1d, type: 3}
+      propertyPath: hasRWBonus
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5465616457927728209, guid: 951a761accbc148feadf89ea09295a1d, type: 3}
       propertyPath: m_Name
       value: Player1
@@ -5405,6 +5417,11 @@ MonoBehaviour:
   player2Start: {fileID: 896227524}
   player3Start: {fileID: 1968033616}
   player4Start: {fileID: 1029145925}
+  playersPositions:
+  - {fileID: 333099197}
+  - {fileID: 896227524}
+  - {fileID: 1968033616}
+  - {fileID: 1029145925}
   GameArena: {fileID: 1723615220}
   player1: {fileID: 5465616457927728209, guid: 951a761accbc148feadf89ea09295a1d, type: 3}
   player2: {fileID: 5465616457927728209, guid: faff53dfb30f8498b974ac29db12f5ba, type: 3}
@@ -21590,6 +21607,10 @@ PrefabInstance:
       propertyPath: retrievedBall
       value: 
       objectReference: {fileID: 8300000, guid: c29b4ce78ff125a4b8d7e94a8985aa7c, type: 3}
+    - target: {fileID: 8794217025648970842, guid: b2cffbf229b0d41b3a8f71aa1cf1573f, type: 3}
+      propertyPath: bonusBallScore
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 8794217025648970842, guid: b2cffbf229b0d41b3a8f71aa1cf1573f, type: 3}
       propertyPath: retrievedBonusBall
       value: 

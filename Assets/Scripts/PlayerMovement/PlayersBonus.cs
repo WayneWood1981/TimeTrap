@@ -24,6 +24,8 @@ public class PlayersBonus : MonoBehaviour
 
     public bool isReady;
 
+    public bool hasLoaded;
+
     public GameObject[] Spheres;
     public Material[] playerMaterials;
 
@@ -32,30 +34,7 @@ public class PlayersBonus : MonoBehaviour
         controls = new Controls();
         colourChange = FindObjectOfType<ColourChange>();
         
-        switch (this.transform.tag)
-        {
-            case "Player1":
-                Transform base1 = GameObject.Find("Base1Green").transform;
-                base1.GetComponent<BaseBonusParticles>().getPlayer("Player1");
-                
-                break;
-            case "Player2":
-                Transform base2 = GameObject.Find("Base2Purple").transform;
-                base2.GetComponent<BaseBonusParticles>().getPlayer("Player2");
-                
-                break;
-            case "Player3":
-                Transform base3 = GameObject.Find("Base3Orange").transform;
-                base3.GetComponent<BaseBonusParticles>().getPlayer("Player3");
-                
-                break;
-            case "Player4":
-                Transform base4 = GameObject.Find("Base4Blue").transform;
-                base4.GetComponent<BaseBonusParticles>().getPlayer("Player4");
-                
-                break;
-
-        }
+        
         
     }
 
@@ -65,6 +44,15 @@ public class PlayersBonus : MonoBehaviour
         playerManager = FindObjectOfType<PlayerManager>();
         audioSource = GetComponent<AudioSource>();
         currentColourNumber = 4;
+        Invoke("hasLoadedIn", 0.5f);
+        
+    }
+
+    private void hasLoadedIn()
+    {
+        hasLoaded = true;
+        Debug.Log("??");
+        
     }
 
     private void IsColourAvailable()
@@ -155,27 +143,60 @@ public class PlayersBonus : MonoBehaviour
     {
         if (!this.gameObject.activeInHierarchy) return;
 
-
-        if (obj.performed && hasPPBonus && playerManager.isInLobbyScreen == false)
+        if (hasLoaded)
         {
-            hasPPBonus = false;
-            CreateSphere("PauseSphere", transform.tag, transform.position);
-        }
-        else if (obj.performed && playerManager.isInLobbyScreen && currentColourNumber != 4 && playerManager.playerAmount > 1)
-        {
-            colourChange.PlayerReadyUp(playerInput.playerIndex);
-            playerManager.readyPlayers += 1;
 
-            
-            playerManager.BeginGamePlayerPosition(playerInput, currentColourNumber);
+            if (obj.performed && hasPPBonus && playerManager.isInLobbyScreen == false)
+            {
+                hasPPBonus = false;
+                CreateSphere("PauseSphere", transform.tag, transform.position);
+            }
+            if (obj.performed && playerManager.isInLobbyScreen && currentColourNumber != 4 && playerManager.playerAmount > 1)
+            {
+                colourChange.PlayerReadyUp(playerInput.playerIndex);
+                playerManager.readyPlayers += 1;
 
 
-        }else if (obj.performed && playerManager.isInLobbyScreen && currentColourNumber != 4 && playerManager.playerAmount < 2)
-        {
-            colourChange.DisplayPlayerWarning();
-        }else if (obj.performed && playerManager.gameHasEnded)
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                playerManager.BeginGamePlayerPosition(playerInput, currentColourNumber);
+                switch (currentColourNumber)
+                {
+                    case 0:
+                        Transform base1 = GameObject.Find("Base1Green").transform;
+
+                        base1.GetComponent<BaseBonusParticles>().getPlayer(this.transform.tag);
+                        base1.GetComponentInChildren<Score>().playerTag = (this.transform.tag);
+
+                        break;
+                    case 1:
+                        Transform base2 = GameObject.Find("Base2Purple").transform;
+                        base2.GetComponent<BaseBonusParticles>().getPlayer(this.transform.tag);
+                        base2.GetComponentInChildren<Score>().playerTag = (this.transform.tag);
+
+                        break;
+                    case 2:
+                        Transform base3 = GameObject.Find("Base3Orange").transform;
+                        base3.GetComponent<BaseBonusParticles>().getPlayer(this.transform.tag);
+                        base3.GetComponentInChildren<Score>().playerTag = (this.transform.tag);
+
+                        break;
+                    case 3:
+                        Transform base4 = GameObject.Find("Base4Blue").transform;
+                        base4.GetComponent<BaseBonusParticles>().getPlayer(this.transform.tag);
+                        base4.GetComponentInChildren<Score>().playerTag = (this.transform.tag);
+
+                        break;
+
+                }
+
+            }
+            else if (obj.performed && playerManager.isInLobbyScreen && currentColourNumber != 4 && playerManager.playerAmount < 2)
+            {
+                colourChange.DisplayPlayerWarning();
+            }
+            else if (obj.performed && playerManager.gameHasEnded)
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            }
         }
     }
 

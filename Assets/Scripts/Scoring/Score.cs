@@ -19,7 +19,7 @@ public class Score : MonoBehaviour
 
     public AudioClip debuff;
 
-
+    public string playerTag;
 
 
     // Start is called before the first frame update
@@ -82,7 +82,8 @@ public class Score : MonoBehaviour
         switch (transform.name)
         {
             case "Player1Score":
-                GameObject player = GameObject.Find("Player1");
+                
+                GameObject player = GameObject.Find(playerTag);
                 if (player)
                 {
                     player.GetComponent<PlayerMovement>().hasDied = true;
@@ -97,7 +98,7 @@ public class Score : MonoBehaviour
                 
                 break;
             case "Player2Score":
-                GameObject player2 = GameObject.Find("Player2");
+                GameObject player2 = GameObject.Find(playerTag);
                 if (player2)
                 {
                     player2.GetComponent<PlayerMovement>().hasDied = true;
@@ -112,7 +113,7 @@ public class Score : MonoBehaviour
                 
                 break;
             case "Player3Score":
-                GameObject player3 = GameObject.Find("Player3");
+                GameObject player3 = GameObject.Find(playerTag);
                 if (player3)
                 {
                     player3.GetComponent<PlayerMovement>().hasDied = true;
@@ -127,7 +128,7 @@ public class Score : MonoBehaviour
                 
                 break;
             case "Player4Score":
-                GameObject player4 = GameObject.Find("Player4");
+                GameObject player4 = GameObject.Find(playerTag);
                 if (player4)
                 {
                     player4.GetComponent<PlayerMovement>().hasDied = true;
